@@ -15,21 +15,21 @@ public class AppTest {
 		// 등록.
 		Member mbr = new Member();
 		mbr.setMemberId("test99");
-//		mbr.setMemberName("연습99");
-//		mbr.setPhone("010-8888-7777");
-//		mbr.setPassword("9999");
+		mbr.setMemberName("연습99");
+		mbr.setPhone("010-8888-7777");
+		mbr.setPassword("9999");
 
-//		if (dao.insertMember(mbr) == 1) {
-//			sqlSession.commit();
-//
-//		}
+		if (dao.insertMember(mbr) == 1) {
+			sqlSession.commit();
+
+		}
 //		if (dao.updateMember(mbr) == 1) {
 //			sqlSession.commit();
 //
 //		}
-		if (dao.deleteMember(mbr.getMemberId()) == 1) {
-			sqlSession.commit();
-		}
+//		if (dao.deleteMember(mbr.getMemberId()) == 1) {
+//			sqlSession.commit();
+//		}
 
 		List<Member> result = dao.members();
 		for (Member member : result) {
