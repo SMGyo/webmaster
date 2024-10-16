@@ -14,10 +14,10 @@ public class AppTest {
 		MemberMapper dao = sqlSession.getMapper(MemberMapper.class);
 		// 등록.
 		Member mbr = new Member();
-		mbr.setMemberId("test99");
-		mbr.setMemberName("연습99");
-		mbr.setPhone("010-8888-7777");
-		mbr.setPassword("9999");
+		mbr.setMemberId("20241016");
+		mbr.setMemberName("연습1016");
+		mbr.setPhone("010-2024-1016");
+		mbr.setPassword("1016");
 
 		if (dao.insertMember(mbr) == 1) {
 			sqlSession.commit();

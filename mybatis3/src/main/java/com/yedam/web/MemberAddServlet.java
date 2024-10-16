@@ -19,7 +19,7 @@ import com.yedam.vo.Member;
 // 응답정보를 전송.
 // http 프로토콜을 데이터 전송 수신.
 // HttpServlet 상속 기능 구현.
-@WebServlet("/MemberAddServlet")
+@WebServlet("/html/MemberAddServlet")//경로
 public class MemberAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
