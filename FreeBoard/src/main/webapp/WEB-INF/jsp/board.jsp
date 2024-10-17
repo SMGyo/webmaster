@@ -49,4 +49,8 @@ table {
 			function(e) {
 		location.href = 'modifyBoard.do?bno=<%=board.getBoardNo()%>';
 			});
+	document.querySelector('input[value="삭제"]').addEventListener('click',
+			function(e) {
+		location.href = 'removeBoard.do?bno=<%=board.getBoardNo()%>';
+			});
 </script>

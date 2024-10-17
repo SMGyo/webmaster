@@ -9,7 +9,7 @@ import com.yedam.mapper.BoardMapper;
 import com.yedam.vo.BoardVO;
 
 public class BoardServiceImpl implements BoardService {
-	SqlSession sqlSession = DataSource.getInstance().openSession(true);//true 자동커밋
+	SqlSession sqlSession = DataSource.getInstance().openSession(true);// true 자동커밋
 	BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
 
 	@Override
@@ -38,6 +38,11 @@ public class BoardServiceImpl implements BoardService {
 		// 조회 & 조회수 증가.
 		mapper.updateCount(boardNo);
 		return mapper.selectBoard(boardNo);
+	}
+
+	@Override
+	public List<BoardVO> board() {
+		return mapper.boardList();
 	}
 
 }

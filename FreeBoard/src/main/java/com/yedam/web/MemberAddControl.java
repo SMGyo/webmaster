@@ -31,9 +31,9 @@ public class MemberAddControl implements Control {
 			svc.addMember(mvo);
 			// 목록페이지로 이동.
 			resp.sendRedirect("memberList.do");
-		} catch(Exception e){
+		} catch (Exception e) {
 			// 등록화면으로 이동.
-			e.printStackTrace();//오류 메시지 출력
+			e.printStackTrace();// 오류 메시지 출력
 			resp.sendRedirect("memberAddForm.do");
 		}
 //		if (svc.addMember(mvo)) {
@@ -43,7 +43,7 @@ public class MemberAddControl implements Control {
 //			// 등록화면으로 이동.
 //			resp.sendRedirect("memberAddForm.do");
 //		}
-		
+
 	}
 
 }

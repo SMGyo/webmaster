@@ -6,6 +6,8 @@ import com.yedam.vo.BoardVO;
 
 public interface BoardService {
 	// 목록 변경 , 등록 , 삭제 , 단건조회
+	List<BoardVO> board();
+
 	List<BoardVO> boardList(int page);
 
 	boolean registerBoard(BoardVO board);
