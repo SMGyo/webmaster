@@ -17,17 +17,18 @@ public class PageDTO {
 	private boolean next;
 	private int page;
 
-	public PageDTO(int page) {
+	public PageDTO(int page,int totalCnt) {
 		BoardService dfdf = new BoardServiceImpl();
 		List<BoardVO> hh = dfdf.board();
-		int totalCnt = hh.size();
+//		int totalCnt = hh.size(); // 13페이지 마지막.
 		this.endPage = (int) Math.ceil(page / 10.0) * 10;
 		this.startPage = this.endPage - 9;
 
-		int realEnd = (int) Math.ceil(totalCnt / 5.0);
+		int realEnd = (int) Math.ceil(totalCnt / 5.0);// 건수 계산 => 최종페이지.
 		this.endPage = this.endPage > realEnd ? realEnd : this.endPage;
 
 		this.prev = this.startPage > 1;
 		this.next = this.endPage < realEnd;
+		this.page=page;
 	}
 }

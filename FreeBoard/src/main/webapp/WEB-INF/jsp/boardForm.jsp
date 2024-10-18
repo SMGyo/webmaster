@@ -5,6 +5,7 @@
 
 <%
 String msg = (String) request.getAttribute("msg");
+String logId = (String) session.getAttribute("logId");
 %>
 <%
 if (msg != null) {
@@ -14,6 +15,8 @@ if (msg != null) {
 }
 %>
 <form action="addBoard.do" method="get">
+	<input class="form-control" type="hidden" name="writer"
+		value="<%=logId%>">
 	<table class="table">
 		<tr>
 			<th>제목</th>
@@ -26,7 +29,7 @@ if (msg != null) {
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td><input class="form-control" type="text" name="writer"></td>
+			<td><%=logId%></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center"><input type="submit" value="저장"
