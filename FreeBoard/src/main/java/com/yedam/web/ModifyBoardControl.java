@@ -18,20 +18,18 @@ public class ModifyBoardControl implements Control {
 
 		// GET: 수정화면, POST: 수정처리.
 		req.setCharacterEncoding("utf-8");
+		
+		BoardService svc = new BoardServiceImpl();
+		
 		String bno = req.getParameter("bno");
 		String page = req.getParameter("page");
 		
 
 
-		BoardService svc = new BoardServiceImpl();
 		if (req.getMethod().equals("GET")) {
-
 			BoardVO board = svc.searchBoard(Integer.parseInt(bno));
-
-
 			req.setAttribute("boardvo", board);
 			req.setAttribute("page", page);
-			
 			req.getRequestDispatcher("WEB-INF/jsp/modifyForm.jsp").forward(req, resp);
 		} else if (req.getMethod().equals("POST")) {
 			String title = req.getParameter("title");

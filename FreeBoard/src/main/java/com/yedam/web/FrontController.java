@@ -6,14 +6,13 @@ import java.util.Map;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
 
-@WebServlet("*.do") // 무슨 내용이 들어가도 .do 있으면 실행이됨
+//@WebServlet("*.do") // 무슨 내용이 들어가도 .do 있으면 실행이됨
 public class FrontController extends HttpServlet {
 	Map<String, Control> map;
 
@@ -43,6 +42,8 @@ public class FrontController extends HttpServlet {
 		// 로그인
 		map.put("/loginForm.do", new LoginControl());
 		map.put("/logOutForm.do", new LogOutControl());
+		
+		map.put("/javascript.do", new JavaScriptCont());
 
 	}
 

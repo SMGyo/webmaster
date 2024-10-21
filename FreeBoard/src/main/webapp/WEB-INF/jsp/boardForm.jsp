@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <jsp:include page="../includes/header.jsp"></jsp:include>
 <h3>등록화면(boardForm.jsp)</h3>
 
@@ -7,16 +9,16 @@
 String msg = (String) request.getAttribute("msg");
 String logId = (String) session.getAttribute("logId");
 %>
-<%
-if (msg != null) {
-%>
-<p style="color: red;"><%=msg%></p>
-<%
-}
-%>
-<form action="addBoard.do" method="get">
+
+<c:if test="${msg != null }">
+
+	<p style="color: red;">${msg }</p>
+
+</c:if>
+
+<form action="addBoard.do" method="post" enctype="multipart/form-data">
 	<input class="form-control" type="hidden" name="writer"
-		value="<%=logId%>">
+		value="${logId }">
 	<table class="table">
 		<tr>
 			<th>제목</th>
@@ -28,8 +30,12 @@ if (msg != null) {
 					cols="30"></textarea></td>
 		</tr>
 		<tr>
+			<th>이미지</th>
+			<td><input type="file" name="img" class="form-control"></td>
+		</tr>
+		<tr>
 			<th>작성자</th>
-			<td><%=logId%></td>
+			<td>${logId }</td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center"><input type="submit" value="저장"

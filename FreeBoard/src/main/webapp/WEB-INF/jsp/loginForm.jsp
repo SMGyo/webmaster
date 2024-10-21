@@ -6,11 +6,11 @@
 	<table class="table">
 		<tr>
 			<th class="col-sm-4">아이디</th>
-			<td><input type="text" name="logId"></td>
+			<td><input type="text" name="logId" class="form-control"></td>
 		</tr>
 		<tr>
 			<th class="col-sm-4">비밀번호</th>
-			<td><input type="password" name="logPw"></td>
+			<td><input type="password" name="logPw" class="form-control"></td>
 		</tr>
 		<tr>
 			<td align="center" colspan="2">
