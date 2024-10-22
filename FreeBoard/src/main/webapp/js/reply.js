@@ -22,7 +22,7 @@ svc.rlist(149//bno
 	} //errorFnc
 )
 function makeRow(obj = {}) {
-	let fields = ['memberId', 'memberName', 'phone'];
+	let fields = ['replyNo', 'reply', 'replyer'];
 	let tr = document.createElement('tr');
 	tr.setAttribute('data-id', obj.memberId);
 	for (let j = 0; j < fields.length; j++) {
