@@ -1,4 +1,4 @@
-package com.yedam.web;
+package com.yedam.control.member;
 
 import java.io.IOException;
 
@@ -8,12 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
 
-public class LoginFormControl implements Control{
+public class MemberAddFormControl implements Control {
+
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		if(req.getMethod().equals("GET")) {
-			req.getRequestDispatcher("WEB-INF/jsp/loginForm.jsp").forward(req, resp);
-		}
+		// jsp 페이지 open.
+			req.getRequestDispatcher("WEB-INF/jsp/memberAddForm.jsp").forward(req, resp);
+
 	}
-	
+
 }

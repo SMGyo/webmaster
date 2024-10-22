@@ -1,7 +1,41 @@
 /** 
  * basic js
 */
-console.log("basic.js")
+/*<h3>javascript.jsp</h3>
+
+<div id="show">
+	<ul>
+		<li>Apple</li>
+		<li>Banana</li>
+		<!--  <li>Cherry</li> -->
+	</ul>
+	<table border="1">
+		<tbody>
+			<tr>
+				<th>이름</th>
+				<td>박길동</td>
+			</tr>
+			<!-- 	<tr>
+				<th>이름</th>
+				<td>홍길동</td>
+			</tr>
+			 -->
+		</tbody>
+	</table>
+	<table border="2">
+		<thead>
+			<tr>
+				<th>이름</th>
+				<th>나이</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- <tr><td>홍길동</td><td>20</td></tr> -->
+		</tbody>
+	</table>
+</div>
+<script src="js/basic.js"></script>
+console.log("basic.js")*/
 
 let name = "홍길동"; //string
 let age = 20; //number

@@ -1,4 +1,4 @@
-package com.yedam.web;
+package com.yedam.control.board;
 
 import java.io.IOException;
 
@@ -22,7 +22,7 @@ public class BoardControl implements Control {
 
 		BoardService svc = new BoardServiceImpl();
 		BoardVO board = svc.searchBoard(Integer.parseInt(bno));
-
+	
 		req.setAttribute("boardvo", board);
 		req.setAttribute("page", page);
 

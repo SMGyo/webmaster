@@ -34,4 +34,5 @@ public class MemberServiceImpl implements MemberService{
 		return mapper.loginMember(id, pw);
 	}
 
+
 }

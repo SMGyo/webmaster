@@ -11,6 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
+import com.yedam.control.JavaScriptCont;
+import com.yedam.control.board.AddBoardControl;
+import com.yedam.control.board.AddBoardForm;
+import com.yedam.control.board.BoardControl;
+import com.yedam.control.board.BoardListControl;
+import com.yedam.control.board.ModifyBoardControl;
+import com.yedam.control.board.RemoveBoardControl;
+import com.yedam.control.member.AddMemberCont;
+import com.yedam.control.member.DelMemberCont;
+import com.yedam.control.member.LogOutControl;
+import com.yedam.control.member.LoginControl;
+import com.yedam.control.member.MemberAddControl;
+import com.yedam.control.member.MemberAddFormControl;
+import com.yedam.control.member.MemberJsonCont;
+import com.yedam.control.member.MemberListControl;
+import com.yedam.control.reply.ReplyListCont;
 
 //@WebServlet("*.do") // 무슨 내용이 들어가도 .do 있으면 실행이됨
 public class FrontController extends HttpServlet {
@@ -42,8 +58,16 @@ public class FrontController extends HttpServlet {
 		// 로그인
 		map.put("/loginForm.do", new LoginControl());
 		map.put("/logOutForm.do", new LogOutControl());
-		
+
 		map.put("/javascript.do", new JavaScriptCont());
+
+		// json 관련.
+		map.put("/memberJson.do", new MemberJsonCont());
+		map.put("/addMemberJson.do", new AddMemberCont());
+		map.put("/removeMemberJson.do", new DelMemberCont());
+
+		// 댓글관련.
+		map.put("/replyList.do", new ReplyListCont());
 
 	}
 

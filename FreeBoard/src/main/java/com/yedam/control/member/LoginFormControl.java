@@ -1,4 +1,4 @@
-package com.yedam.web;
+package com.yedam.control.member;
 
 import java.io.IOException;
 
@@ -8,11 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
 
-public class JavaScriptCont implements Control {
-
+public class LoginFormControl implements Control{
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("etc/javascript.tiles").forward(req, resp);
+		if(req.getMethod().equals("GET")) {
+			req.getRequestDispatcher("WEB-INF/jsp/loginForm.jsp").forward(req, resp);
+		}
 	}
-
+	
 }
