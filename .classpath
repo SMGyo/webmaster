@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="FreeBoard/src/main/java"/>
+	<classpathentry kind="src" path="FreeBoard/src/test/java"/>
+	<classpathentry kind="src" path="hongongjava/src"/>
+	<classpathentry kind="src" path="mybatis3/src/main/java"/>
+	<classpathentry kind="lib" path="hongongjava/lib/ojdbc6.jar"/>
+	<classpathentry kind="output" path="hongongjava/bin"/>
+</classpath>

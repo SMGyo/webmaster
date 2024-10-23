@@ -3,6 +3,12 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<style>
+.reply span {
+	
+}
+</style>
 <jsp:include page="../includes/header.jsp"></jsp:include>
 <%
 BoardVO board = (BoardVO) request.getAttribute("boardvo");
@@ -39,9 +45,13 @@ table {
 	<tr>
 		<th>이미지</th>
 		<td colspan="3">
-		<%if(board.getImg() != null) {%>
-		<img src="images/<%=board.getImg()%>" width="100px"></td>
-		<%} %>
+			<%
+			if (board.getImg() != null) {
+			%> <img src="images/<%=board.getImg()%>" width="100px">
+		</td>
+		<%
+		}
+		%>
 	</tr>
 	<tr>
 		<th>작성일시</th>
@@ -55,14 +65,22 @@ table {
 </table>
 
 <!-- 댓글관련. -->
-<table id="replyList" class="table">
- <thead>
-  <tr>
-   <th>댓글번호</th><th>내용</th><th>작성자</th>
-  </tr>
- </thead>
- <tbody></tbody>
-</table>
+<div class="container reply">
+	<!-- 댓글등록. -->
+	<!-- 댓글목록. -->
+	<div class="content">
+		<ul>
+			<li><span class="col-sm-2">글번호</span> <span class="col-sm-5">내용</span>
+				<span class="col-sm-2">작성자</span> <span class="col-sm-2">삭제</span></li>
+			<li><span class="col-sm-2">3</span> <span class="col-sm-5">댓글입니다</span>
+				<span class="col-sm-2">user01</span> <span class="col-sm-2"><button>삭제</button></span></li>
+		</ul>
+	</div>
+	<!-- 댓글페이징. -->
+</div>
+
+
+
 <jsp:include page="../includes/footer.jsp"></jsp:include>
 <script>
 	document.querySelector('input[value="수정"]').addEventListener('click',
@@ -72,10 +90,9 @@ table {
 //location.href = 'modifyBoard.do?searchCondition=${searchCondition }&keyword=${keyword}&page=${page}&bno=${bno}'
 	document.querySelector('input[value="삭제"]').addEventListener('click',
 			function(e) {
-		location.href = 'removeBoard.do?page=<%=pg%>&bno=<%=board.getBoardNo()%>';
-			});
-			
-			
+		location.href = 'removeBoard.do?page=<%=pg%>&bno=<%=board.getBoardNo()%>
+	';
+					});
 </script>
 
 <script src="js/replyService.js"></script>
