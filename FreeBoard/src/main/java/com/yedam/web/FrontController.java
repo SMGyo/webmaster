@@ -26,7 +26,9 @@ import com.yedam.control.member.MemberAddControl;
 import com.yedam.control.member.MemberAddFormControl;
 import com.yedam.control.member.MemberJsonCont;
 import com.yedam.control.member.MemberListControl;
+import com.yedam.control.reply.AddReplyCont;
 import com.yedam.control.reply.RemoveReplyCont;
+import com.yedam.control.reply.ReplyCountCont;
 import com.yedam.control.reply.ReplyListCont;
 
 //@WebServlet("*.do") // 무슨 내용이 들어가도 .do 있으면 실행이됨
@@ -70,6 +72,8 @@ public class FrontController extends HttpServlet {
 		// 댓글관련.
 		map.put("/replyList.do", new ReplyListCont());
 		map.put("/removeReply.do", new RemoveReplyCont());
+		map.put("/addReply.do", new AddReplyCont());
+		map.put("/replyCount.do", new ReplyCountCont());
 
 	}
 

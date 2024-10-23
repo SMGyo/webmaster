@@ -6,10 +6,11 @@
 
 <style>
 .reply span {
-display: inline-block;
+	display: inline-block;
 }
-.reply ul{
-list-style: none;
+
+.reply ul {
+	list-style: none;
 }
 </style>
 <jsp:include page="../includes/header.jsp"></jsp:include>
@@ -70,6 +71,10 @@ table {
 <!-- 댓글관련. -->
 <div class="container reply">
 	<!-- 댓글등록. -->
+	<div class="header">
+		댓글내용: <input class="col-sm-8" id="reply">
+		<button class="col-sm-3" id="addReply">댓글등록</button>
+	</div>
 	<!-- 댓글목록. -->
 	<div class="content">
 		<ul>
@@ -80,13 +85,26 @@ table {
 		</ul>
 	</div>
 	<!-- 댓글페이징. -->
+	<nav aria-label="Page navigation example">
+		<ul class="pagination">
+			<li class="page-item"><a class="page-link" href="#"
+				aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+			</a></li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#"
+				aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+			</a></li>
+		</ul>
+	</nav>
 </div>
 
-
-
 <jsp:include page="../includes/footer.jsp"></jsp:include>
+
 <script>
 	const bno = "${boardvo.boardNo }"; console.log(bno);
+	const logId = "${logId}"; console.log(logId);
 	document.querySelector('input[value="수정"]').addEventListener('click',
 			function(e) {
 		location.href = 'modifyBoard.do?page=<%=pg%>&bno=<%=board.getBoardNo()%>';
@@ -94,8 +112,7 @@ table {
 //location.href = 'modifyBoard.do?searchCondition=${searchCondition }&keyword=${keyword}&page=${page}&bno=${bno}'
 	document.querySelector('input[value="삭제"]').addEventListener('click',
 			function(e) {
-		location.href = 'removeBoard.do?page=<%=pg%>&bno=<%=board.getBoardNo()%>
-	';
+		location.href = 'removeBoard.do?page=<%=pg%>&bno=<%=board.getBoardNo()%>';
 					});
 </script>
 

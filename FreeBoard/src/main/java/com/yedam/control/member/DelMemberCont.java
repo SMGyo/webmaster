@@ -13,18 +13,16 @@ import com.yedam.service.MemberServiceImpl;
 public class DelMemberCont implements Control {
 
 	@Override
-	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	public void exec(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
 		String id = req.getParameter("id");
-
+		
 		MemberService svc = new MemberServiceImpl();
-		if (svc.retireMember(id)) {
-			resp.getWriter().print("{\"retCode\": \"OK\"}");
-		} else {
-			resp.getWriter().print("{\"retCode\": \"FAIL\"}");
-
+		if( svc.retireMember(id) ) {
+			resp.getWriter().print("{\"retCode\" : \"OK\"}");
+		}else {
+			resp.getWriter().print("{\"retCode\" : \"FAIL\"}");
 		}
-
 	}
 
 }
