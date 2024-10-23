@@ -72,8 +72,8 @@ table {
 		<ul>
 			<li><span class="col-sm-2">글번호</span> <span class="col-sm-5">내용</span>
 				<span class="col-sm-2">작성자</span> <span class="col-sm-2">삭제</span></li>
-			<li><span class="col-sm-2">3</span> <span class="col-sm-5">댓글입니다</span>
-				<span class="col-sm-2">user01</span> <span class="col-sm-2"><button>삭제</button></span></li>
+			<!-- <li><span class="col-sm-2">3</span> <span class="col-sm-5">댓글입니다</span>
+				<span class="col-sm-2">user01</span> <span class="col-sm-2"><button>삭제</button></span></li> -->
 		</ul>
 	</div>
 	<!-- 댓글페이징. -->
@@ -83,6 +83,7 @@ table {
 
 <jsp:include page="../includes/footer.jsp"></jsp:include>
 <script>
+	const bno = "${boardvo.boardNo }"; console.log(bno);
 	document.querySelector('input[value="수정"]').addEventListener('click',
 			function(e) {
 		location.href = 'modifyBoard.do?page=<%=pg%>&bno=<%=board.getBoardNo()%>';
