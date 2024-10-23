@@ -20,7 +20,7 @@ svc.rlist(149//bno
 		 template.querySelector('span').innerText = 30;
 		 template.querySelector('span:nth-of-type(2) ').innerText = '댓글내용..';
 		 template.querySelector('span:nth-of-type(3) ').innerText = 'user01';
-		 template.querySelector('span:nth-of-type(4) ').innerHTML = '<button>삭제</button>';
+		 template.querySelector('span:nth-of-type(4) ').innerHTML = '<button onclick="deleteRow()">삭제</button>';
 		 
 		 document.querySelector(".reply ul").appendChild(template);
 
@@ -57,5 +57,13 @@ function makeList(result) {
 		tr.appendChild(td);
 
 		return tr;
+	}
+	function deleteRow(e){
+		let rno = e.target.parentElement.parentElement.firstElementChild.innerText;
+		console.log(rno);
+	}
+	function makeList(result){
+		console.log(result);
+		//작성
 	}
 	

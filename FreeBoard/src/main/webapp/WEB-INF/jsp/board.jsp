@@ -6,7 +6,10 @@
 
 <style>
 .reply span {
-	
+display: inline-block;
+}
+.reply ul{
+list-style: none;
 }
 </style>
 <jsp:include page="../includes/header.jsp"></jsp:include>
