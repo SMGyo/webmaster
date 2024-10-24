@@ -1,29 +1,35 @@
 package com.yedam.test;
 
 import java.util.List;
+import java.util.Map;
 
-import org.apache.ibatis.session.SqlSession;
-
-import com.yedam.common.DataSource;
-import com.yedam.common.SearchDTO;
-import com.yedam.mapper.ReplyMapper;
-import com.yedam.vo.BoardVO;
-import com.yedam.vo.ReplyVO;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.yedam.service.BoardService;
+import com.yedam.service.BoardServiceImpl;
 
 public class AppTest {
 	public static void main(String[] args) {
-		SqlSession sqlSession = DataSource.getInstance().openSession();
-		ReplyMapper mapper = sqlSession.getMapper(ReplyMapper.class);
+		BoardService svc = new BoardServiceImpl();
+		List<Map<String, Object>> result = svc.countByWriter();
 		
-		SearchDTO search = new SearchDTO();
-		search.setKeyword("user01");
-		search.setSearchCondition("W");
-		search.setPage(1);
 		
-		List<ReplyVO> list = mapper.selectList(149);
-		for (ReplyVO bvo : list) {
-			System.out.println(bvo.toString());
-		}
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String json = gson.toJson(result);
+		
+		System.out.println(json);
+//		SqlSession sqlSession = DataSource.getInstance().openSession();
+//		ReplyMapper mapper = sqlSession.getMapper(ReplyMapper.class);
+//		
+//		SearchDTO search = new SearchDTO();
+//		search.setKeyword("user01");
+//		search.setSearchCondition("W");
+//		search.setPage(1);
+//		
+//		List<ReplyVO> list = mapper.selectList(149);
+//		for (ReplyVO bvo : list) {
+//			System.out.println(bvo.toString());
+//		}
 
 //		BoardVO bvo = new BoardVO(); 
 //		bvo.setTitle("mapper테스트");
@@ -39,7 +45,7 @@ public class AppTest {
 //		bvo.setContent("정상 작동합니다.[조회]");
 //		bvo.setWriter("user01");
 //		bvo.setBoardNo(5);
-		
+
 //		if(mapper.insertBoard(bvo) == 1) {
 //			sqlSession.commit();
 //		}

@@ -14,21 +14,22 @@
 		from tbl_board
 		order by board_no
 	</select>
-	<select id="listWithPage" parameterType="com.yedam.common.SearchDTO">
+	<select id="listWithPage"
+		parameterType="com.yedam.common.SearchDTO">
 		select b.*
 		from (select rownum rn, a.*
 		from (select *
 		from tbl_board
 		<where>
-		<choose>
-			<when test="searchCondition == 'T'.toString()">title like '%'||#{keyword}||'%'</when>
-			<when test="searchCondition == 'W'.toString()">writer like '%'||#{keyword}||'%'</when>
+			<choose>
+				<when test="searchCondition == 'T'.toString()">title like '%'||#{keyword}||'%'</when>
+				<when test="searchCondition == 'W'.toString()">writer like '%'||#{keyword}||'%'</when>
 
-			<when test="searchCondition == 'TW'.toString()">(title like '%'||#{keyword}||'%') or (writer
-				like
-				'%'||#{keyword}||'%')</when>
+				<when test="searchCondition == 'TW'.toString()">(title like '%'||#{keyword}||'%') or (writer
+					like
+					'%'||#{keyword}||'%')</when>
 
-		</choose>
+			</choose>
 		</where>
 		order by board_no) a)b
 		where b.rn
@@ -41,7 +42,8 @@
 	<insert id="insertBoard" parameterType="board">
 		insert into tbl_board
 		(board_no, title, content, writer, img)
-		values (board_seq.nextval, #{title}
+		values (board_seq.nextval,
+		#{title}
 		, #{content} , #{writer}, #{img} )
 
 	</insert>
@@ -94,14 +96,35 @@
 		from
 		tbl_board
 		<where>
-		<choose>
-			<when test="searchCondition == 'T'.toString()">title like '%'||#{keyword}||'%'</when>
-			<when test="searchCondition == 'W'.toString()">writer like '%'||#{keyword}||'%'</when>
-			<when test="searchCondition == 'TW'.toString()">(title like '%'||#{keyword}||'%') or (writer
-				like
-				'%'||#{keyword}||'%')</when>
-
-		</choose>
+			<choose>
+				<when test="searchCondition == 'T'.toString()">title like '%'||#{keyword}||'%'</when>
+				<when test="searchCondition == 'W'.toString()">writer like '%'||#{keyword}||'%'</when>
+				<when test="searchCondition == 'TW'.toString()">(title like '%'||#{keyword}||'%') or (writer
+					like
+					'%'||#{keyword}||'%')</when>
+			</choose>
 		</where>
 	</select>
+	<select id="countByWriter" resultType="hashmap">
+		select writer as
+		"writer",member_name as "member_name", count(1) as "count"
+		from
+		tbl_board b
+		join tbl_member m
+		on b.writer = m.member_id
+		group by
+		writer,member_name
+	</select>
+
+	<select id="selectEvent" useCache="false" resultType="map">
+		select
+		title as "title"
+		,start_date as "start"
+		,end as "end"
+		from tbl_event
+	</select>
+	<insert id="insertEvent" parameterType="hashmap">
+		insert into tbl_event (title, start_date, end)
+		values(#{title},#{startDate},#{endDate})
+	</insert>
 </mapper>

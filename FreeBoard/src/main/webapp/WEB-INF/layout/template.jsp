@@ -53,7 +53,10 @@
 				%>
 				<a
 					class="list-group-item list-group-item-action list-group-item-light p-3"
-					href="#!">Status</a>
+					href="chart.do">차트</a>
+				<a
+					class="list-group-item list-group-item-action list-group-item-light p-3"
+					href="calendar.do">캘린더</a>
 			</div>
 		</div>
 		<!-- Page content wrapper-->

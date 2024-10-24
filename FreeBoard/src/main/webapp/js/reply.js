@@ -21,7 +21,7 @@ function addReplyHandlerFnc(e) {
 		result => {
 			console.log(result); //OK:화면에 한줄추가. FAIL: "에러발생"
 			if (result.retCode == 'OK') {
-				page=1;
+				page = 1;
 				showList();
 				svc.getReplyCount(bno, createPageList, err => console.log(err));
 				//let template = makeLi(result.retVal);
@@ -96,7 +96,7 @@ svc.getReplyCount(bno, createPageList, err => console.log(err));
 //createPageList();
 function createPageList(result) { // page = 2
 	console.log(result.totalCount);
-	
+
 	let totalCnt = result.totalCount;
 	let startPage, endPage, realEnd;
 	let prev, next;

@@ -11,7 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
+import com.yedam.control.CalendarCont;
+import com.yedam.control.ChartControl;
+import com.yedam.control.CountWriterCont;
+import com.yedam.control.EventControl;
 import com.yedam.control.JavaScriptCont;
+import com.yedam.control.addEventControl;
 import com.yedam.control.board.AddBoardControl;
 import com.yedam.control.board.AddBoardForm;
 import com.yedam.control.board.BoardControl;
@@ -64,17 +69,25 @@ public class FrontController extends HttpServlet {
 
 		map.put("/javascript.do", new JavaScriptCont());
 
-		// json 관련.
+		// json 관련
 		map.put("/memberJson.do", new MemberJsonCont());
 		map.put("/addMemberJson.do", new AddMemberCont());
 		map.put("/removeMemberJson.do", new DelMemberCont());
 
-		// 댓글관련.
+		// 댓글관련
 		map.put("/replyList.do", new ReplyListCont());
 		map.put("/removeReply.do", new RemoveReplyCont());
 		map.put("/addReply.do", new AddReplyCont());
 		map.put("/replyCount.do", new ReplyCountCont());
-
+		
+		//차트
+		map.put("/chart.do",new ChartControl());
+		map.put("/countByWriter.do", new CountWriterCont());
+		
+		//캘린더
+		map.put("/calendar.do",new CalendarCont());
+		map.put("/eventList.do", new EventControl());
+		map.put("/addEvent.do", new addEventControl());
 	}
 
 	@Override
