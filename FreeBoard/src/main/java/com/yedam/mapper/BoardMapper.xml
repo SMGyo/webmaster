@@ -116,7 +116,7 @@
 		writer,member_name
 	</select>
 
-	<select id="selectEvent" useCache="false" resultType="map">
+	<select id="selectEvent" resultType="hashmap">
 		select
 		title as "title"
 		,start_date as "start"

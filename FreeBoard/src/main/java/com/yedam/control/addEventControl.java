@@ -41,10 +41,7 @@ public class addEventControl implements Control {
 					e.printStackTrace();
 					json = "{\"retCode\":\"FAIL\"}";
 				}
-
-			
-
-	
+				resp.getWriter().println(json);
 
 	}
 }

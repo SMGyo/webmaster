@@ -85,7 +85,7 @@ public class FrontController extends HttpServlet {
 		map.put("/countByWriter.do", new CountWriterCont());
 		
 		//캘린더
-		map.put("/calendar.do",new CalendarCont());
+		map.put("/calendar.do", new CalendarCont());
 		map.put("/eventList.do", new EventControl());
 		map.put("/addEvent.do", new addEventControl());
 	}

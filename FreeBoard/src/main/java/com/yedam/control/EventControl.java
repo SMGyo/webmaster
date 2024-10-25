@@ -27,12 +27,10 @@ public class EventControl implements Control {
 		List<Map<String, Object>> list = svc.eventList();
 		String json = gson.toJson(list);
 		
-			json = gson.toJson(list);
+		
+		json = gson.toJson(list);
+		resp.getWriter().print(json);
 
-			resp.getWriter().print(json);
-		
-		
-		resp.getWriter().println(json);
 	}// end of exec.
 
 }
