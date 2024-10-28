@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(function(){
+	/*$('button:eq(0)').on('click',function (e) {
+		$('select:eq(1)').append($('select:eq(0) option:selected'));
+	})
+	$('button:eq(1)').on('click',function (e) {
+		$('select:eq(0)').append($('select:eq(1) option:selected'));
+	})*/
+		let plusbtn = $("button:eq(0)");
+		let minusbtn = $("button:eq(1)");
+		plusbtn.on("click",function(e){
+			$('select:eq(1)').append($('select:eq(0) option:selected'));
+		})
+		minusbtn.on("click",function(e){
+			$('select:eq(0)').append($('select:eq(1) option:selected'));
+		})
+	
+})
+</script>
+</head>
+
+<body>
+	<select multiple style="height: 150px">
+		<option>option1</option>
+		<option>option2</option>
+		<option>option3</option>
+		<option>option4</option>
+		<option>option5</option>
+	</select>
+	<button id="plusbtn">+</button>
+	<button id="minusbtn">-</button>
+	<select multiple style="height: 150px">
+		<option>option6</option>
+		<option>option7</option>
+		<option>option8</option>
+		<option>option9</option>
+		<option>option10</option>
+	</select>
+</body>
+
+</html>
