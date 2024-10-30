@@ -40,6 +40,9 @@
 
 	<c:forEach var="i" begin="1" end="5">
 		<p>i의 값은 ${i }입니다.</p>
+		<h3>개발 브랜치</h3>
+		<h3>개발 브랜치 추가</h3>
+		<h3>마스터 개발 브랜치</h3>
 	</c:forEach>
 </body>
 </html>
